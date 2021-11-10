@@ -1,0 +1,22 @@
+.body{
+    background-image: url('../../images/banner1.jpg');
+}
+.add-service-parent{
+    background-color: rgb(173, 173, 173);
+    width: 50%;
+    margin: 0 auto;
+    padding: 3rem;
+    border-radius: 5px;
+}
+.add-service-form input{
+    width: 100%;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 5px;
+}
+
+.add-service-form textarea{
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+}

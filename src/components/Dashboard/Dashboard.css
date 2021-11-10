@@ -1,0 +1,10 @@
+.dashboard-container{
+    display: grid;
+    grid-template-columns: 300px auto;
+    justify-items: center;
+}
+
+.dashboard-sidebar{
+    background-color: rgb(198, 227, 253);
+    height: 100vh;
+}

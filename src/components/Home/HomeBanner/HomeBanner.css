@@ -1,0 +1,21 @@
+.carousel-item img{
+    height: 650px;
+    object-fit: cover;
+}
+
+.caru-img:after {
+    content:"";
+    display:block;
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    background:rgba(61, 61, 61, 0.5);
+  }
+
+  .custom{
+      position:absolute;
+      top: 35%;
+      color: whitesmoke;
+  }

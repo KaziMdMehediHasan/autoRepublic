@@ -1,0 +1,7 @@
+.branding img{
+    width: 5rem;
+}
+.branding span{
+    font-style: italic;
+    font-weight: bold;
+}

@@ -1,0 +1,24 @@
+.custom-card{
+    width: 22rem;
+    height: 30.4rem;
+    /* border: 1px solid gray; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    color: rgba(255, 255, 255, 0.829);
+    box-shadow: 15px 15px 50px -5px   rgba(0, 0, 0, 0.7);
+}
+
+.card-image img{
+    border-radius: 5px;
+    width: 20rem;
+    height: 13rem;
+    object-fit: cover;
+}
+
+.card-text{
+    width: 20rem;
+    margin-top: 10px;
+}

@@ -5,6 +5,7 @@ import AddService from './components/AddService/AddService';
 import NavigationBar from './components/NavigationBar/NavigationBar';
 import Dashboard from './components/Dashboard/Dashboard';
 import AllProducts from './components/Products/AllProducts/AllProducts';
+import PurchaseProduct from './components/PurchaseProduct/PurchaseProduct';
 
 function App() {
   return (
@@ -25,6 +26,9 @@ function App() {
         </Route>
         <Route path="/allProducts">
           <AllProducts></AllProducts>
+        </Route>
+        <Route path="/purchaseProduct/:id">
+          <PurchaseProduct></PurchaseProduct>
         </Route>
       </Switch>
     </Router>

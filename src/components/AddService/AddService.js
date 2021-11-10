@@ -7,6 +7,24 @@ const AddService = () => {
 
     const onSubmit = (data, e) => {
         console.log(data);
+
+        // send req to the server
+
+        fetch("http://localhost:5000/products",{
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(data)
+        })
+        .then(res=>res.json())
+        .then(data=> {
+          if(data.insertedId){
+            alert("Product Added successfully!")
+          }
+        });
+
+        e.target.reset();
     }
     return (
         <div className="p-5 body">
@@ -19,13 +37,23 @@ const AddService = () => {
                 placeholder="Car Name"
               />
               <hr />
-              <input type="number" {...register("mileage")} placeholder="Mileage" />
+              <input
+                {...register("carBrand", { required: true })}
+                placeholder="Brand"
+              />
+              <hr />
+              <input
+                {...register("year", { required: true })}
+                placeholder="Release Year"
+              />
+              <hr />
+              <input  {...register("mileage")} placeholder="Mileage" />
               <hr />
               <textarea {...register("description")} placeholder="Description" />
               <hr />
               <input {...register("img_url")} placeholder="Image URL" />
               <hr />
-              <input type="number" {...register("price")} placeholder="Price" />
+              <input  {...register("price")} placeholder="Price" />
               <hr />
             <button  className="btn btn-primary">Add</button>
             </form>

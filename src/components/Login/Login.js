@@ -31,8 +31,7 @@ const Login = () => {
   }
 
   const handleGoogleLogin =()=>{
-    loginWithGoogle();
-
+    loginWithGoogle(location, history);
   }
     return (
       <div className="container">

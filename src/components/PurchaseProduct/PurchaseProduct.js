@@ -1,10 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
+import useAuth from '../../hooks/useAuth';
 import "./PurchaseProduct.css";
 
 const PurchaseProduct = () => {
-    const { register, handleSubmit } = useForm();
+    const {user} = useAuth();
+
+    const preloadedValues = {
+      name: user.displayName,
+      email: user.email,
+    };
+    const { register, handleSubmit } = useForm({
+      defaultValues: preloadedValues,
+    });
     const [product , setProduct] = useState({});
     const {id} = useParams();
     useEffect(()=>{
@@ -18,8 +27,25 @@ const PurchaseProduct = () => {
 
     const onSubmit = (formData, e) => {
 
-        const orderData = {...formData, product}
-        console.log(orderData);
+        const orderData = {...formData, product};
+
+        // sending req to the server
+
+        fetch("http://localhost:5000/orders",{
+          method: 'POST',
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(orderData)
+        })
+        .then(res=>res.json())
+        .then(data =>{
+          if(data.insertedId){
+            alert("Success!")
+          }
+          console.log(data);
+        })
+        e.target.reset();
     }
     return (
         <div className="bg-dark purchase-parent">
@@ -43,17 +69,19 @@ const PurchaseProduct = () => {
             <form className="purchase-form" onSubmit={handleSubmit(onSubmit)}>
               <input
                 {...register("name", { required: true })}
-                placeholder="Purchase Name"
+                placeholder="name *required"
               />
               <hr />
               <input
                 {...register("address", { required: true })}
-                placeholder="Customer Address"
+                placeholder="Customer Address *required"
               />
               <hr />
-              <input  {...register("email")} placeholder="Purchase Email" />
+              <input 
+                {...register("email", { required: true })} placeholder="email *required" />
               <hr />
-              <textarea {...register("contact")} placeholder="Phone Number" />
+              <textarea 
+                {...register("contact",{ required: true })} placeholder="Phone Number *required" />
               <hr />
               <input className="submit" type="submit"/>
             </form>

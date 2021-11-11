@@ -7,7 +7,8 @@ import {
   onAuthStateChanged,
   signInWithEmailAndPassword,
   GoogleAuthProvider,
-  signInWithPopup
+  signInWithPopup,
+  updateProfile
 } from "firebase/auth";
 import initializeFirebaseApp from '../Firebase/firebase.init';
 
@@ -18,18 +19,33 @@ const useFirebase = () => {
   const [user, setUser] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState("");
+  const [admin, setAdmin] = useState(false);
 
   const auth = getAuth();
 
   //register new user
-  const registerUser = (email, password) => {
+  const registerUser = (name, email, password, history) => {
     setIsLoading(true);
     createUserWithEmailAndPassword(auth, email, password)
       .then((result) => {
         // Signed in
-        const user = result.user;
-        setUser(user);
+        const newUser = {email, displayName: name};
+        setUser(newUser);
         setError("");
+        // save user to database
+
+        saveUser(email, name, "POST");
+        // send name to firebase after creation
+        updateProfile(auth.currentUser, {
+            displayName: name
+          })
+          .then(() => {
+          })
+          .catch((error) => {
+          });
+          
+        
+        history.replace("/");
       })
       .catch((err) => {
         const error = err.message;
@@ -59,21 +75,26 @@ const useFirebase = () => {
 
 //   google login
 
-const loginWithGoogle = (email, password) => {
+const loginWithGoogle = (location, history) => {
+  setIsLoading(true);
     const googleProvider = new GoogleAuthProvider();
     signInWithPopup(auth, googleProvider)
   .then((result) => {
-
     const user = result.user;
     setUser(user);
     setError('')
+    saveUser(user.email, user.displayName, "PUT");
+    const destination = location?.state?.from || '/';
+    history.replace(destination);
+    
     // ...
-  }).catch((error) => {
+  }).catch((err) => {
 
-    const errorMessage = error.message;
-    setError(errorMessage);
+    const error = err.message;
+    setError(error);
 
-  });
+  })
+  .finally(()=>setIsLoading(false));
 }
   //   observe user presence
 
@@ -90,6 +111,14 @@ const loginWithGoogle = (email, password) => {
     return () => unsubscribe;
   }, []);
 
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/users/${user.email}`)
+    .then(res=>res.json())
+    .then(data => {
+      setAdmin(data.admin);
+    })
+  },[user.email])
   //   logout user
 
   const logOut = () => {
@@ -106,8 +135,20 @@ const loginWithGoogle = (email, password) => {
       }).finally(()=>setIsLoading(false));
   };
 
+  const saveUser =(email, displayName, method) => {
+    const user = {email, displayName};
+    fetch('http://localhost:5000/users',{
+      method: method,
+      headers:{
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(user)
+    }).then();
+  }
+
   return {
     user,
+    admin,
     isLoading,
     registerUser,
     loginWithGoogle,

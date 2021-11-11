@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 
 const Register = () => {
     const {registerUser,error, user, isLoading} = useAuth();
     console.log(user);
-    console.log(isLoading);
+    // console.log(isLoading);
     const [registerData, setRegisterData] = useState({});
+
+    const history = useHistory();
 
     const handleChange =(e)=>{
         const field = e.target.name;
@@ -28,7 +30,7 @@ const Register = () => {
           alert("Password should be at least of 6 characters");
         }
 
-        registerUser(registerData.email, registerData.password);
+        registerUser(registerData.name, registerData.email, registerData.password, history);
         console.log(registerData.email, registerData.password);
         e.preventDefault();
     }
@@ -38,6 +40,11 @@ const Register = () => {
         <h1>Register</h1>
         { 
         !isLoading &&(<form onSubmit={handleRegister}>
+        <div class="mb-3">
+          <label class="form-label">Name</label>
+          <input onChange={handleChange} name="name" placeholder="Your Name" type="text" class="form-control" aria-describedby="emailHelp"/>
+         
+        </div>
         <div class="mb-3">
           <label class="form-label">Email address</label>
           <input onChange={handleChange} name="email" placeholder="Your Email" type="email" class="form-control" aria-describedby="emailHelp"/>

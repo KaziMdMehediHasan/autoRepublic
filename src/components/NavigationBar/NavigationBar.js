@@ -1,9 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import useAuth from '../../hooks/useAuth';
 import logo from "../../logo.png";
 import './NavigationBar.css';
 
 const NavigationBar = () => {
+
+  const {user,logOut} = useAuth();
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
@@ -29,6 +32,12 @@ const NavigationBar = () => {
               <li className="nav-item">
                 <Link to="/dashboard" className="nav-link" >Dashboard</Link>
               </li>
+              <li class="nav-item">{user.email}</li>
+              {
+                user?.email ? <button onClick={logOut} class="btn btn-danger">Logout</button> :  <li class="nav-item">
+                <Link to="/login" class="nav-link">Login</Link>
+              </li>
+              }
             </ul>
           </div>
                 

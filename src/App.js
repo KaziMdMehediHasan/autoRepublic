@@ -6,9 +6,14 @@ import NavigationBar from './components/NavigationBar/NavigationBar';
 import Dashboard from './components/Dashboard/Dashboard';
 import AllProducts from './components/Products/AllProducts/AllProducts';
 import PurchaseProduct from './components/PurchaseProduct/PurchaseProduct';
+import Login from './components/Login/Login';
+import Register from './components/Register/Register';
+import AuthProvider from './contexts/AuthProvider/AuthProvider';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
 function App() {
   return (
+    <AuthProvider>
     <Router>
       <NavigationBar></NavigationBar>
       <Switch>
@@ -18,20 +23,28 @@ function App() {
         <Route path="/home">
           <Home></Home>
         </Route>
-        <Route path="/addService">
+        <PrivateRoute path="/addService">
           <AddService></AddService>
-        </Route>
-        <Route path="/dashboard">
+        </PrivateRoute>
+        <PrivateRoute path="/dashboard">
           <Dashboard></Dashboard>
-        </Route>
+        </PrivateRoute>
         <Route path="/allProducts">
           <AllProducts></AllProducts>
         </Route>
-        <Route path="/purchaseProduct/:id">
+        <PrivateRoute path="/purchaseProduct/:id">
           <PurchaseProduct></PurchaseProduct>
+        </PrivateRoute>
+        <Route path="/login">
+          <Login></Login>
+        </Route>
+        <Route path="/register">
+          <Register></Register>
         </Route>
       </Switch>
     </Router>
+    </AuthProvider>
+
   );
 }
 

@@ -6,6 +6,7 @@ import {
     useRouteMatch
   } from "react-router-dom";
 import useAuth from '../../hooks/useAuth';
+import AdminRoute from '../AdminRoute/AdminRoute';
 import "./Dashboard.css";
 import DashboardHome from './DashboardHome/DashboardHome';
 import MakeAdmin from './MakeAdmin/MakeAdmin';
@@ -18,31 +19,31 @@ const Dashboard = () => {
     const{admin} = useAuth();
     return (
         <div className="dashboard-container">
-        <div className="dashboard-sidebar">
-            <h1>Dashboard Sidebar</h1>
+        <div className="dashboard-sidebar p-5">
+            <h1 className="text-center"></h1>
             {/* links*/}
-                <ul>
+                <ul className="navbar-nav">
                     {/* home route */}
-                    <li className="nav-link">
-                    <Link to={`${url}`}>Dashboard Home</Link> 
+                    <li className="nav-item fw-bold">
+                    <Link className="nav-link text-dark" to={`${url}`}>Dashboard Home</Link> 
                     </li>
-                    <li className="nav-link">
-                    <Link to={`${url}/myOrders`}>My Orders</Link> 
+                    <li className="nav-item fw-bold">
+                    <Link className="nav-link text-dark" to={`${url}/myOrders`}>My Orders</Link> 
                     </li>
-                    <li className="nav-link">
-                    <Link to={`${url}/review`}>Leave a Review</Link>
+                    <li className="nav-item fw-bold">
+                    <Link className="nav-link text-dark" to={`${url}/review`}>Leave a Review</Link>
                     </li>
                     {
                         admin && (
-                                <li className="nav-link">
-                                <Link to={`${url}/manageProducts`}>Manage All Products</Link>
+                                <li className="nav-item fw-bold">
+                                <Link className="nav-link text-dark" to={`${url}/manageProducts`}>Manage All Products</Link>
                                 </li>
                         )
                     }
                     {
                         admin && (
-                            <li className="nav-link">
-                            <Link to={`${url}/makeAdmin`}>Make an Admin</Link>
+                            <li className="nav-item fw-bold">
+                            <Link className="nav-link text-dark" to={`${url}/makeAdmin`}>Make an Admin</Link>
                          </li>
                         )
                     }
@@ -60,12 +61,12 @@ const Dashboard = () => {
                     <Route path={`${path}/myOrders`}>
                         <MyOrders></MyOrders>
                     </Route>
-                    <Route path={`${path}/manageProducts`}>
+                    <AdminRoute path={`${path}/manageProducts`}>
                         <ManageAllProducts></ManageAllProducts>
-                    </Route>
-                    <Route path={`${path}/makeAdmin`}>
+                    </AdminRoute>
+                    <AdminRoute path={`${path}/makeAdmin`}>
                         <MakeAdmin></MakeAdmin>
-                    </Route>
+                    </AdminRoute>
                     <Route path={`${path}/review`}>
                         <Review></Review>
                     </Route>

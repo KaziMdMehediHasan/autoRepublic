@@ -1,13 +1,11 @@
 import React from 'react';
 
-const SingleOrder = (props) => {
-    // console.log(props.order);
-    const {name, contact, address, _id} = props.order;
-    const {carName,price} = props.order.product;
+const ManageSingle = (props) => {
+    const{carName, carBrand, mileage, _id, price, year} = props.product;
 
     const handleDelete =(id)=>{
         console.log(id);
-        fetch(`http://localhost:5000/orders/${id}`,{
+        fetch(`http://localhost:5000/products/${id}`,{
             method: 'DELETE',
         })
         .then(res=>res.json())
@@ -22,9 +20,9 @@ const SingleOrder = (props) => {
         <tr>
         <td>{carName}</td>
         <td>{price}</td>
-        <td>{name}</td>
-        <td>{address}</td>
-        <td>{contact}</td>
+        <td>{carBrand}</td>
+        <td>{year}</td>
+        <td>{mileage}</td>
         <td>
             <button 
             onClick={()=>{
@@ -33,11 +31,11 @@ const SingleOrder = (props) => {
                 }
             }}
              class="btn btn-danger">
-                 Cancel Order
+                 Delete Product
              </button>
         </td>
         </tr>
     );
 };
 
-export default SingleOrder;
+export default ManageSingle;

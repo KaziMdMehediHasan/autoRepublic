@@ -2,7 +2,7 @@ import React from 'react';
 
 const SingleOrder = (props) => {
     // console.log(props.order);
-    const {name, contact, address, _id} = props.order;
+    const {name, contact, address, _id,status} = props.order;
     const {carName,price} = props.order.product;
 
     const handleDelete =(id)=>{
@@ -25,6 +25,7 @@ const SingleOrder = (props) => {
         <td>{name}</td>
         <td>{address}</td>
         <td>{contact}</td>
+        <td>{status}</td>
         <td>
             <button 
             onClick={()=>{

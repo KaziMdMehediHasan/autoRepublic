@@ -27,8 +27,8 @@ const AddService = () => {
         e.target.reset();
     }
     return (
-        <div className="p-5 body">
-        <h1 className="text-center text-light p-5">Add New Service</h1>
+        <div className="pb-5 body">
+        <h1 className="text-center text-light p-5">Add a New Product</h1>
         <div className="add-service-parent shadow-lg">
           <div>
             <form className="add-service-form" onSubmit={handleSubmit(onSubmit)}>

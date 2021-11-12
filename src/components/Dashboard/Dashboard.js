@@ -2,8 +2,8 @@ import React from 'react';
 import {
     Switch,
     Route,
-    Link,
-    useRouteMatch
+    useRouteMatch,
+    NavLink
   } from "react-router-dom";
 import useAuth from '../../hooks/useAuth';
 import AdminRoute from '../AdminRoute/AdminRoute';
@@ -13,6 +13,7 @@ import MakeAdmin from './MakeAdmin/MakeAdmin';
 import ManageAllOrders from './ManageAllOrders/ManageAllOrders';
 import ManageAllProducts from './ManageAllProducts/ManageAllProducts';
 import MyOrders from './MyOrders/MyOrders';
+import Pay from './Pay/Pay';
 import Review from './Review/Review';
 import UpdateOrder from './UpdateOrder/UpdateOrder';
 import UpdateProduct from './UpdateProduct/UpdateProduct';
@@ -28,32 +29,89 @@ const Dashboard = () => {
                 <ul className="navbar-nav">
                     {/* home route */}
                     <li className="nav-item fw-bold">
-                    <Link className="nav-link text-dark" to={`${url}`}>Dashboard Home</Link> 
+                    <NavLink 
+                         activeStyle={{
+                         fontWeight: "bold",
+                         color: "red"
+                      }}
+                    className="nav-link text-dark" to={`${url}`}>Dashboard Home</NavLink> 
                     </li>
-                    <li className="nav-item fw-bold">
-                    <Link className="nav-link text-dark" to={`${url}/myOrders`}>My Orders</Link> 
-                    </li>
-                    <li className="nav-item fw-bold">
-                    <Link className="nav-link text-dark" to={`${url}/review`}>Leave a Review</Link>
-                    </li>
+                    {
+                        !admin && (
+                            <li className="nav-item fw-bold">
+                            <NavLink
+                              activeStyle={{
+                                fontWeight: "bold",
+                                color: "red"
+                              }}
+                            className="nav-link text-dark" to={`${url}/myOrders`}>
+                                My Orders
+                                </NavLink> 
+                            </li>
+                        )
+                    }
+
+                    {
+                        !admin && (
+                            <li className="nav-item fw-bold">
+                            <NavLink
+                              activeStyle={{
+                                fontWeight: "bold",
+                                color: "red"
+                              }}
+                            className="nav-link text-dark" to={`${url}/pay`}>
+                                Pay
+                                </NavLink> 
+                            </li>
+                        )
+                    }
+
+                    {
+                        !admin && (
+                            <li className="nav-item fw-bold">
+                            <NavLink 
+                              activeStyle={{
+                                fontWeight: "bold",
+                                color: "red"
+                              }}
+                            className="nav-link text-dark" to={`${url}/review`}>Leave a Review</NavLink>
+                            </li>
+                        )
+                    }
+
                     {
                         admin && (
                                 <li className="nav-item fw-bold">
-                                <Link className="nav-link text-dark" to={`${url}/manageProducts`}>Manage All Products</Link>
+                                <NavLink 
+                                  activeStyle={{
+                                    fontWeight: "bold",
+                                    color: "red"
+                                  }}
+                                className="nav-link text-dark" to={`${url}/manageProducts`}>Manage All Products</NavLink>
                                 </li>
                         )
                     }
                     {
                         admin && (
                                 <li className="nav-item fw-bold">
-                                <Link className="nav-link text-dark" to={`${url}/manageOrders`}>Manage All  Orders</Link>
+                                <NavLink 
+                                  activeStyle={{
+                                    fontWeight: "bold",
+                                    color: "red"
+                                  }}
+                                className="nav-link text-dark" to={`${url}/manageOrders`}>Manage All  Orders</NavLink>
                                 </li>
                         )
                     }
                     {
                         admin && (
                             <li className="nav-item fw-bold">
-                            <Link className="nav-link text-dark" to={`${url}/makeAdmin`}>Make an Admin</Link>
+                            <NavLink 
+                              activeStyle={{
+                                fontWeight: "bold",
+                                color: "red"
+                              }}
+                            className="nav-link text-dark" to={`${url}/makeAdmin`}>Make an Admin</NavLink>
                          </li>
                         )
                     }
@@ -69,6 +127,9 @@ const Dashboard = () => {
                     </Route>
                     <Route path={`${path}/myOrders`}>
                         <MyOrders></MyOrders>
+                    </Route>
+                    <Route path={`${path}/pay`}>
+                        <Pay></Pay>
                     </Route>
                     <AdminRoute path={`${path}/manageProducts`}>
                         <ManageAllProducts></ManageAllProducts>

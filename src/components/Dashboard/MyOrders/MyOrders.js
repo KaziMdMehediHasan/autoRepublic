@@ -30,6 +30,7 @@ const MyOrders = () => {
                     <th scope="col">Customer Name</th>
                     <th scope="col">Address</th>
                     <th scope="col">Contact No</th>
+                    <th scope="col">Status</th>
                     <th scope="col">Action</th>
                     </tr>
                 </thead>

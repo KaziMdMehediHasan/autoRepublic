@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const ManageSingleOrder = (props) => {
     // console.log(props);
-    const {name, contact, address, _id} = props.order;
+    const {name, contact, address, _id, status} = props.order;
     const {carName,price} = props.order.product;
 
     const handleDelete =(id)=>{
@@ -20,6 +20,26 @@ const ManageSingleOrder = (props) => {
         })
     }
 
+    const handleShip =(id)=>{
+        const order = {id};
+        console.log(order);
+
+        fetch("http://localhost:5000/orders/update",{
+            method: 'PUT',
+            headers: {
+                "content-type": "application/json",
+            },
+            body: JSON.stringify(order),
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            if(data.modifiedCount){
+                alert("Order has been shipped for destination");
+            }
+            console.log(data);
+        })
+    }
+
     return (
         <tr>
         <td>{carName}</td>
@@ -27,7 +47,7 @@ const ManageSingleOrder = (props) => {
         <td>{name}</td>
         <td>{address}</td>
         <td>{contact}</td>
-        <td></td>
+        <td>{status}</td>
         <td>
             <button 
             onClick={()=>{
@@ -38,9 +58,12 @@ const ManageSingleOrder = (props) => {
              class="btn btn-danger">
                  Cancel Order
              </button>
-             <Link to={`updateOrder/${_id}`}>
+             {/* <Link to={`updateOrder/${_id}`}>
                <button class="btn btn-primary">Update</button>
-             </Link>
+             </Link> */}
+             <button onClick={()=>{handleShip(_id)}} class="btn btn-primary">
+                 Ship
+             </button>
         </td>
         </tr>
     );

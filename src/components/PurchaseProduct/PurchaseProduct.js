@@ -28,7 +28,7 @@ const PurchaseProduct = () => {
     const onSubmit = (formData, e) => {
 
         const orderData = {...formData, product};
-
+        orderData.status = "pending"; 
         // sending req to the server
 
         fetch("http://localhost:5000/orders",{
@@ -45,6 +45,7 @@ const PurchaseProduct = () => {
           }
           console.log(data);
         })
+        console.log(orderData);
         e.target.reset();
     }
     return (

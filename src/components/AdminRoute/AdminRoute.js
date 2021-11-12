@@ -9,7 +9,7 @@ import useAuth from '../../hooks/useAuth';
 const AdminRoute = ({ children, ...rest }) => {
   const {user, admin,isLoading} = useAuth();
   
-  if(isLoading) {
+  if(!admin || isLoading) {
         return (<div class="d-flex justify-content-center">
         <div class="spinner-border" role="status">
             <span class="visually-hidden">Loading...</span>

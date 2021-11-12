@@ -6,6 +6,7 @@ const UpdateProduct = () => {
     return (
         <div>
             <h1>Update Product : {id}</h1>
+            <h2>This feature is under development</h2>
         </div>
     );
 };

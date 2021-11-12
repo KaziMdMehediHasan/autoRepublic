@@ -10,7 +10,7 @@ const MyOrders = () => {
     const email = user.email;
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/orders/${email}`)
+        fetch(`https://calm-earth-69765.herokuapp.com/orders/${email}`)
         .then(res=>res.json())
         .then(data => {
             setOrders(data);
@@ -19,19 +19,19 @@ const MyOrders = () => {
     },[orders])
 
     return (
-        <div className="p-5">
-            <div className="product-container container">
+        <div className="table-parent">
+            <div className="table-container">
             <table class="table caption-top">
                 <caption>My Orders</caption>
-                <thead>
-                    <tr>
-                    <th scope="col">Car</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Customer Name</th>
-                    <th scope="col">Address</th>
-                    <th scope="col">Contact No</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">Action</th>
+                <thead className="table-head">
+                    <tr className="table-row">
+                    <th className="text-light" scope="col">Car</th>
+                    <th className="text-light" scope="col">Price</th>
+                    <th className="text-light" scope="col">Customer Name</th>
+                    <th className="text-light" scope="col">Address</th>
+                    <th className="text-light" scope="col">Contact No</th>
+                    <th className="text-light" scope="col">Status</th>
+                    <th className="text-light" scope="col">Action</th>
                     </tr>
                 </thead>
                 <tbody>

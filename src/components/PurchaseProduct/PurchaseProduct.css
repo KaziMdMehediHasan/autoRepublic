@@ -58,3 +58,22 @@
 .title{
     color: rgb(209, 43, 126);
 }
+
+/* mobile responsive */
+
+@media screen and (max-width: 688px) {
+    .product-details{
+        width: 95%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .product-img , .product-info{
+        width: 100%;
+    }
+
+    .purchase-form-parent{
+        width: 95%;
+    }
+}

@@ -1,3 +1,6 @@
+import { faClipboard } from '@fortawesome/free-regular-svg-icons';
+import { faCommentAlt, faHome, faList, faMoneyCheckAlt, faUserShield } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import {
     Switch,
@@ -21,20 +24,27 @@ import UpdateProduct from './UpdateProduct/UpdateProduct';
 const Dashboard = () => {
     let { path, url } = useRouteMatch();
     const{admin} = useAuth();
+    //icons 
+    const home = <FontAwesomeIcon icon={faHome}/>
+    const clipboard = <FontAwesomeIcon icon={faClipboard}/>
+    const list = <FontAwesomeIcon icon={faList}/>
+    const superUser = <FontAwesomeIcon icon={faUserShield}/>
+    const payment = <FontAwesomeIcon icon={faMoneyCheckAlt}/>
+    const comment = <FontAwesomeIcon icon={faCommentAlt}/>
     return (
         <div className="dashboard-container">
-        <div className="dashboard-sidebar p-5">
-            <h1 className="text-center">Dashboard Menu</h1>
+        <div className="dashboard-sidebar">
+            <h1 className="text-center my-5">Menu</h1>
             {/* links*/}
-                <ul className="navbar-nav">
+                <ul className="dashboard-menu">
                     {/* home route */}
-                    <li className="nav-item fw-bold">
+                    <li className="nav-item fw-bold text-light">
                     <NavLink 
                          activeStyle={{
                          fontWeight: "bold",
-                         color: "red"
+                         color: "#64D9BB"
                       }}
-                    className="nav-link text-dark" to={`${url}`}>Dashboard Home</NavLink> 
+                    className="nav-link" to={`${url}`}><span className="text-light">{home} </span>Dashboard Home</NavLink> 
                     </li>
                     {
                         !admin && (
@@ -42,10 +52,10 @@ const Dashboard = () => {
                             <NavLink
                               activeStyle={{
                                 fontWeight: "bold",
-                                color: "red"
+                                color: "#F04794"
                               }}
-                            className="nav-link text-dark" to={`${url}/myOrders`}>
-                                My Orders
+                            className="nav-link" to={`${url}/myOrders`}>
+                                <span className="text-light">{list} </span>My Orders
                                 </NavLink> 
                             </li>
                         )
@@ -57,10 +67,10 @@ const Dashboard = () => {
                             <NavLink
                               activeStyle={{
                                 fontWeight: "bold",
-                                color: "red"
+                                color: "#F04794"
                               }}
-                            className="nav-link text-dark" to={`${url}/pay`}>
-                                Pay
+                            className="nav-link" to={`${url}/pay`}>
+                                <span className="text-light">{payment} </span>Pay
                                 </NavLink> 
                             </li>
                         )
@@ -72,9 +82,9 @@ const Dashboard = () => {
                             <NavLink 
                               activeStyle={{
                                 fontWeight: "bold",
-                                color: "red"
+                                color: "#F04794"
                               }}
-                            className="nav-link text-dark" to={`${url}/review`}>Leave a Review</NavLink>
+                            className="nav-link" to={`${url}/review`}><span className="text-light">{comment} </span>Leave a Review</NavLink>
                             </li>
                         )
                     }
@@ -85,9 +95,9 @@ const Dashboard = () => {
                                 <NavLink 
                                   activeStyle={{
                                     fontWeight: "bold",
-                                    color: "red"
+                                    color: "#F04794"
                                   }}
-                                className="nav-link text-dark" to={`${url}/manageProducts`}>Manage All Products</NavLink>
+                                className="nav-link" to={`${url}/manageProducts`}><span className="text-light">{clipboard} </span>Manage All Products</NavLink>
                                 </li>
                         )
                     }
@@ -97,9 +107,9 @@ const Dashboard = () => {
                                 <NavLink 
                                   activeStyle={{
                                     fontWeight: "bold",
-                                    color: "red"
+                                    color: "#F04794"
                                   }}
-                                className="nav-link text-dark" to={`${url}/manageOrders`}>Manage All  Orders</NavLink>
+                                className="nav-link" to={`${url}/manageOrders`}><span className="text-light">{list} </span>Manage All  Orders</NavLink>
                                 </li>
                         )
                     }
@@ -109,9 +119,9 @@ const Dashboard = () => {
                             <NavLink 
                               activeStyle={{
                                 fontWeight: "bold",
-                                color: "red"
+                                color: "#F04794"
                               }}
-                            className="nav-link text-dark" to={`${url}/makeAdmin`}>Make an Admin</NavLink>
+                            className="nav-link" to={`${url}/makeAdmin`}><span className="text-light">{superUser} </span>Make an Admin</NavLink>
                          </li>
                         )
                     }

@@ -1,0 +1,9 @@
+.table-span{
+    display: none;
+}
+
+@media screen and (max-width:688px){
+    .table-span{
+        display: inline-block;
+    }    
+}

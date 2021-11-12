@@ -1,12 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import "./ManageSingle.css";
 
 const ManageSingle = (props) => {
     const{carName, carBrand, mileage, _id, price, year} = props.product;
 
     const handleDelete =(id)=>{
         console.log(id);
-        fetch(`http://localhost:5000/products/${id}`,{
+        fetch(`https://calm-earth-69765.herokuapp.com/products/${id}`,{
             method: 'DELETE',
         })
         .then(res=>res.json())
@@ -18,12 +19,12 @@ const ManageSingle = (props) => {
         })
     }
     return (
-        <tr>
-        <td>{carName}</td>
-        <td>{price}</td>
-        <td>{carBrand}</td>
-        <td>{year}</td>
-        <td>{mileage}</td>
+        <tr className="table-row">
+        <td className="text-light"><span className="table-span">Model : </span> {carName}</td>
+        <td className="text-light"><span className="table-span">Price : </span>{price}</td>
+        <td className="text-light"><span className="table-span">Manufacturer : </span>{carBrand}</td>
+        <td className="text-light"><span className="table-span">Year : </span>{year}</td>
+        <td className="text-light"><span className="table-span">Mileage : </span>{mileage}</td>
         <td>
             <button 
             onClick={()=>{

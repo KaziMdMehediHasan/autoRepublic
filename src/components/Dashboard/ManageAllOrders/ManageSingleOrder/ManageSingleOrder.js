@@ -8,7 +8,7 @@ const ManageSingleOrder = (props) => {
 
     const handleDelete =(id)=>{
         console.log(id);
-        fetch(`http://localhost:5000/orders/${id}`,{
+        fetch(`https://calm-earth-69765.herokuapp.com/orders/${id}`,{
             method: 'DELETE',
         })
         .then(res=>res.json())
@@ -24,7 +24,7 @@ const ManageSingleOrder = (props) => {
         const order = {id};
         console.log(order);
 
-        fetch("http://localhost:5000/orders/update",{
+        fetch("https://calm-earth-69765.herokuapp.com/orders/update",{
             method: 'PUT',
             headers: {
                 "content-type": "application/json",
@@ -41,13 +41,13 @@ const ManageSingleOrder = (props) => {
     }
 
     return (
-        <tr>
-        <td>{carName}</td>
-        <td>{price}</td>
-        <td>{name}</td>
-        <td>{address}</td>
-        <td>{contact}</td>
-        <td>{status}</td>
+        <tr className="table-row">
+        <td className="text-light"><span className="table-span">Model : </span> {carName}</td>
+        <td className="text-light"><span className="table-span">Price : </span> ${price}</td>
+        <td className="text-light"><span className="table-span">Customer Name : </span> {name}</td>
+        <td className="text-light"><span className="table-span">Address : </span> {address}</td>
+        <td className="text-light"><span className="table-span">Contact No : </span> {contact}</td>
+        <td className="text-light"><span className="table-span">Order Status :</span> {status}</td>
         <td>
             <button 
             onClick={()=>{

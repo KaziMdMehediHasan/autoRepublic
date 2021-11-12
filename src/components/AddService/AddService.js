@@ -10,7 +10,7 @@ const AddService = () => {
 
         // send req to the server
 
-        fetch("http://localhost:5000/products",{
+        fetch("https://calm-earth-69765.herokuapp.com/products",{
           method: "POST",
           headers: {
             "content-type": "application/json",

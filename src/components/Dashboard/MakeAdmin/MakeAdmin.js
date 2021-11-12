@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import "./MakeAdmin.css";
 
 const MakeAdmin = () => {
     const [email, setEmail] = useState('');
@@ -9,7 +10,7 @@ const MakeAdmin = () => {
     const handleMakeAdmin =(e)=>{
         console.log(email);
         const user = {email};
-        fetch("http://localhost:5000/users/admin",{
+        fetch("https://calm-earth-69765.herokuapp.com/users/admin",{
             method: 'PUT',
             headers: {
                 "content-type": "application/json",
@@ -26,10 +27,12 @@ const MakeAdmin = () => {
         e.preventDefault();
     }
     return (
-        <div>
+        <div className="make-admin-parent">
+        <div className="make-admin-container">
+        <h2 className="text-center" style={{color: '#C8C8C8'}}>Make Admin</h2>
             <form onSubmit={handleMakeAdmin}>
                 <div class="mb-3">
-                    <label class="form-label">Email address</label>
+                    <label class="form-label text-light">Email address</label>
                     <input
                     onBlur={handleOnBlur}
                      type="email"
@@ -46,6 +49,8 @@ const MakeAdmin = () => {
             </form>
 
         </div>
+        </div>
+
     );
 };
 

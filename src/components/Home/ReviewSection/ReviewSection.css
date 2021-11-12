@@ -4,3 +4,11 @@
     justify-items: center;
     grid-gap: 1rem;
 }
+
+/* mobile responsive */
+
+@media screen and (max-width:688px){
+    .review-parent{
+        grid-template-columns: 1fr;
+    }
+}

@@ -17,7 +17,7 @@ const Review = () => {
 
         // sending req to the server
 
-        fetch("http://localhost:5000/reviews",{
+        fetch("https://calm-earth-69765.herokuapp.com/reviews",{
           method: 'POST',
           headers: {
             "content-type": "application/json",
@@ -37,8 +37,8 @@ const Review = () => {
     }
 
     return (
-        <div>
-            <h1>Leave a Review</h1>
+        <div className="container">
+            <h1 className="text-light text-center p-5">Leave a Review</h1>
             <form className="purchase-form" onSubmit={handleSubmit(onSubmit)}>
               <input
                 {...register("name", { required: true })}

@@ -10,11 +10,12 @@ const AdminRoute = ({ children, ...rest }) => {
   const {user, admin,isLoading} = useAuth();
   
   if(!admin || isLoading) {
-        return (<div class="d-flex justify-content-center">
-        <div class="spinner-border" role="status">
-            <span class="visually-hidden">Loading...</span>
-        </div>
-        </div>)
+        return (
+          <div class="d-flex align-items-center">
+            <strong>Access Bound to Admin Only!</strong>
+            <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
+          </div>
+           )
 }
   return (
     <Route

@@ -2,6 +2,7 @@
     display: grid;
     grid-template-columns: 300px auto;
     justify-items: center;
+    align-items: center;
 }
 
 .dashboard-sidebar{

@@ -1,12 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const ManageSingle = (props) => {
-    const{carName, carBrand, mileage, _id, price, year} = props.product;
+const ManageSingleOrder = (props) => {
+    // console.log(props);
+    const {name, contact, address, _id} = props.order;
+    const {carName,price} = props.order.product;
 
     const handleDelete =(id)=>{
         console.log(id);
-        fetch(`http://localhost:5000/products/${id}`,{
+        fetch(`http://localhost:5000/orders/${id}`,{
             method: 'DELETE',
         })
         .then(res=>res.json())
@@ -17,13 +19,15 @@ const ManageSingle = (props) => {
             console.log(data);
         })
     }
+
     return (
         <tr>
         <td>{carName}</td>
         <td>{price}</td>
-        <td>{carBrand}</td>
-        <td>{year}</td>
-        <td>{mileage}</td>
+        <td>{name}</td>
+        <td>{address}</td>
+        <td>{contact}</td>
+        <td></td>
         <td>
             <button 
             onClick={()=>{
@@ -32,19 +36,14 @@ const ManageSingle = (props) => {
                 }
             }}
              class="btn btn-danger">
-                 Delete Product
+                 Cancel Order
              </button>
-             <Link to={`updateProduct/${_id}`}>
-               <button
-                  class="btn btn-primary"
-                  >
-                 Update
-              </button>
+             <Link to={`updateOrder/${_id}`}>
+               <button class="btn btn-primary">Update</button>
              </Link>
- 
         </td>
         </tr>
     );
 };
 
-export default ManageSingle;
+export default ManageSingleOrder;

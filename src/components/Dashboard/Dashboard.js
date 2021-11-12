@@ -10,9 +10,12 @@ import AdminRoute from '../AdminRoute/AdminRoute';
 import "./Dashboard.css";
 import DashboardHome from './DashboardHome/DashboardHome';
 import MakeAdmin from './MakeAdmin/MakeAdmin';
+import ManageAllOrders from './ManageAllOrders/ManageAllOrders';
 import ManageAllProducts from './ManageAllProducts/ManageAllProducts';
 import MyOrders from './MyOrders/MyOrders';
 import Review from './Review/Review';
+import UpdateOrder from './UpdateOrder/UpdateOrder';
+import UpdateProduct from './UpdateProduct/UpdateProduct';
 
 const Dashboard = () => {
     let { path, url } = useRouteMatch();
@@ -20,7 +23,7 @@ const Dashboard = () => {
     return (
         <div className="dashboard-container">
         <div className="dashboard-sidebar p-5">
-            <h1 className="text-center"></h1>
+            <h1 className="text-center">Dashboard Menu</h1>
             {/* links*/}
                 <ul className="navbar-nav">
                     {/* home route */}
@@ -42,6 +45,13 @@ const Dashboard = () => {
                     }
                     {
                         admin && (
+                                <li className="nav-item fw-bold">
+                                <Link className="nav-link text-dark" to={`${url}/manageOrders`}>Manage All  Orders</Link>
+                                </li>
+                        )
+                    }
+                    {
+                        admin && (
                             <li className="nav-item fw-bold">
                             <Link className="nav-link text-dark" to={`${url}/makeAdmin`}>Make an Admin</Link>
                          </li>
@@ -52,7 +62,6 @@ const Dashboard = () => {
              
         </div>
         <div className="dashboard-body">
-            <h1>Dashboard Body</h1>
             <Switch>
                     {/* home route */}
                     <Route exact path={path}>
@@ -63,6 +72,15 @@ const Dashboard = () => {
                     </Route>
                     <AdminRoute path={`${path}/manageProducts`}>
                         <ManageAllProducts></ManageAllProducts>
+                    </AdminRoute>
+                    <AdminRoute path={`${path}/manageOrders`}>
+                        <ManageAllOrders></ManageAllOrders>
+                    </AdminRoute>
+                    <AdminRoute path={`${path}/updateProduct/:id`}>
+                        <UpdateProduct></UpdateProduct>
+                    </AdminRoute>
+                    <AdminRoute path={`${path}/updateOrder/:id`}>
+                        <UpdateOrder></UpdateOrder>
                     </AdminRoute>
                     <AdminRoute path={`${path}/makeAdmin`}>
                         <MakeAdmin></MakeAdmin>

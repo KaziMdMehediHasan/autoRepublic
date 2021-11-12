@@ -1,35 +1,36 @@
 import React, { useEffect, useState } from 'react';
-import ManageSingle from './ManageSingle/ManageSingle';
+import ManageSingleOrder from './ManageSingleOrder/ManageSingleOrder';
 
-const ManageAllProducts = () => {
-    const [products, setProducts] = useState([]);
+const ManageAllOrders = () => {
+    const [orders, setOrders] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/products')
+        fetch('http://localhost:5000/orders')
         .then(res=>res.json())
         .then(data => {
-            setProducts(data);
+            setOrders(data);
             // console.log(data);
         })
-    },[products])
+    },[orders])
     return (
         <div className="p-5">
             <div className="product-container container">
             <table class="table caption-top">
                 <caption>All Products</caption>
                 <thead>
-                    <tr>
-                    <th scope="col">Model</th>
+                <tr>
+                    <th scope="col">Car</th>
                     <th scope="col">Price</th>
-                    <th scope="col">Brand</th>
-                    <th scope="col">Year of Release</th>
-                    <th scope="col">Mileage</th>
+                    <th scope="col">Customer Name</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Contact No</th>
+                    <th scope="col">Status</th>
                     <th scope="col">Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     {
-                        products.map(product=> <ManageSingle key={product._id} product={product}></ManageSingle>)
+                        orders.map(order=> <ManageSingleOrder key={order._id} order={order}></ManageSingleOrder>)
                     }
                 </tbody>
                 </table>
@@ -38,4 +39,4 @@ const ManageAllProducts = () => {
     );
 };
 
-export default ManageAllProducts;
+export default ManageAllOrders;

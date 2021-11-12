@@ -1,10 +1,10 @@
-.product-parent{
-    background-image: url("../../../images/banner8.jpg");
+.home-card-parent{
+    background-image: url('../../../images/banner6.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
 }
-.product-container{
+.home-product-container{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-row-gap: 2em;

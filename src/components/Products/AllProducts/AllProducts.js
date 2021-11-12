@@ -14,7 +14,7 @@ const AllProducts = () => {
         })
     },[])
     return (
-        <div className="bg-dark p-5">
+        <div className="product-parent p-5">
             <div className="product-container container">
             {
                 products.map(product =><SingleProduct key={product._id} product={product}></SingleProduct>)

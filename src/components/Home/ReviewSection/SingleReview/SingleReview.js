@@ -15,7 +15,7 @@ const SingleReview = (props) => {
         <div className="review-card shadow">
             <h3><span style={{color: "#50A374"}}>{user}</span> {name}</h3>
             <h5 className="text-muted">{profession}</h5>
-            <p className="">{quoteLeft} {opinion.slice(0,50)} {quoteRight}</p>
+            <p className="">{quoteLeft} {opinion.slice(0,70)}... {quoteRight}</p>
             <Rating 
             fullSymbol = "fas fa-star rating-icon-color"
             emptySymbol = "far fa-star rating-icon-color"

@@ -15,7 +15,6 @@ function App() {
   return (
     <AuthProvider>
     <Router>
-      <NavigationBar></NavigationBar>
       <Switch>
         <Route exact path="/">
           <Home></Home>
@@ -23,9 +22,6 @@ function App() {
         <Route path="/home">
           <Home></Home>
         </Route>
-        <PrivateRoute path="/addService">
-          <AddService></AddService>
-        </PrivateRoute>
         <PrivateRoute path="/dashboard">
           <Dashboard></Dashboard>
         </PrivateRoute>

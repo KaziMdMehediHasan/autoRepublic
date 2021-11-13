@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
+import Footer from '../Footer/Footer';
+import NavigationBar from '../NavigationBar/NavigationBar';
+import "./Register.css";
 
 const Register = () => {
     const {registerUser,error, user, isLoading} = useAuth();
@@ -35,51 +38,59 @@ const Register = () => {
         e.preventDefault();
     }
     return (
+      <div>
+        <NavigationBar></NavigationBar>
         <div className="container">
 
-        <h1>Register</h1>
-        { 
-        !isLoading &&(<form onSubmit={handleRegister}>
-        <div class="mb-3">
-          <label class="form-label">Name</label>
-          <input onChange={handleChange} name="name" placeholder="Your Name" type="text" class="form-control" aria-describedby="emailHelp"/>
-         
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Email address</label>
-          <input onChange={handleChange} name="email" placeholder="Your Email" type="email" class="form-control" aria-describedby="emailHelp"/>
-          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Password</label>
-          <input onChange={handleChange} name="password" placeholder="Password" type="password" class="form-control" />
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Confirm Password</label>
-          <input onChange={handleChange} name="password2" placeholder="Re-type Password" type="password" class="form-control"/>
-        </div>
-        <button type="submit" class="btn btn-primary">Register</button>
-        <br/>
-        <hr/>
-      </form>)
-        }
-        {
-          isLoading &&(<div class="d-flex align-items-center">
-          <strong>Loading...</strong>
-          <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
-        </div>
-        )
-        }
+              <h1 className="my-5">Register</h1>
+              { 
+              !isLoading &&(<form onSubmit={handleRegister}>
+              <div class="mb-3">
+                <label class="form-label">Name</label>
+                <input onChange={handleChange} name="name" placeholder="Your Name" type="text" class="form-control" aria-describedby="emailHelp"/>
+              
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Email address</label>
+                <input onChange={handleChange} name="email" placeholder="Your Email" type="email" class="form-control" aria-describedby="emailHelp"/>
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Password</label>
+                <input onChange={handleChange} name="password" placeholder="Password" type="password" class="form-control" />
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Confirm Password</label>
+                <input onChange={handleChange} name="password2" placeholder="Re-type Password" type="password" class="form-control"/>
+              </div>
+              <button type="submit" class="btn btn-primary">Register</button>
+              <br/>
+              <hr/>
+              </form>)
+              }
+              {
+                isLoading &&(<div class="d-flex align-items-center">
+                <strong>Loading...</strong>
+                <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
+              </div>
+              )
+              }
 
-        {
-            user?.email && (<div class="alert alert-success" role="alert">
-            Registration Successful!
-          </div>)
-        }
-       
-      <h1>{error}</h1>
-      <Link to="/login">Already Registered? Click Here To Login</Link>
+              {
+                  user?.email && (<div class="alert alert-success" role="alert">
+                  Registration Successful!
+                </div>)
+              }
+
+              <h1>{error}</h1>
+              <Link to="/login">Already Registered? Click Here To Login</Link>
+        </div>
+        <div  className="reg-foot">
+        <Footer></Footer>
+        </div>
+        
       </div>
+
     );
 };
 

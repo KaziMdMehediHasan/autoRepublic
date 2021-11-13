@@ -34,7 +34,7 @@ const ManageSingleOrder = (props) => {
         .then(res=>res.json())
         .then(data=>{
             if(data.modifiedCount){
-                alert("Order has been shipped for destination");
+                alert("Order has been shipped to destination");
             }
             console.log(data);
         })

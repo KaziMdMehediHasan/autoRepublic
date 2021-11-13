@@ -8,10 +8,10 @@ const NavigationBar = () => {
 
   const {user,logOut, admin} = useAuth();
     return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container-fluid">
             <div className="branding">
-            <Link to="/home" className="navbar-brand">
+            <Link to="/home" className="navbar-brand text-light">
                 <img src={logo} alt="logo" /><span>AutoRepublic</span>
             </Link>
             </div>
@@ -19,9 +19,9 @@ const NavigationBar = () => {
             <div>
                 {/* nav list div */}
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-icon text-light"></span>
           </button>
-          <div className="collapse navbar-collapse" id="navbarNav">
+          <div className="collapse navbar-collapse text-light" id="navbarNav">
             <ul className="navbar-nav">
               <li className="nav-item">
                 <Link to='/home' className="nav-link" aria-current="page">Home</Link>
@@ -29,13 +29,6 @@ const NavigationBar = () => {
               <li className="nav-item">
                 <Link to='/allProducts' className="nav-link" aria-current="page">Explore</Link>
               </li>
-              {
-                user?.email && admin ? (
-                  <li className="nav-item">
-                  <Link to="/addService" className="nav-link" >Add Product</Link>
-                </li>
-                ) : ""
-              }
               {
                 user?.email && (
                   <li className="nav-item">

@@ -1,0 +1,15 @@
+.footer-parent{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+
+.footer-row img{
+    width: 5rem;
+}
+
+.footer-row span{
+    color: rgb(79, 194, 230);
+}

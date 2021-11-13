@@ -10,6 +10,7 @@ import {
   } from "react-router-dom";
 import useAuth from '../../hooks/useAuth';
 import AdminRoute from '../AdminRoute/AdminRoute';
+import AddProduct from './AddProduct/AddProduct';
 import "./Dashboard.css";
 import DashboardHome from './DashboardHome/DashboardHome';
 import MakeAdmin from './MakeAdmin/MakeAdmin';
@@ -97,6 +98,18 @@ const Dashboard = () => {
                                     fontWeight: "bold",
                                     color: "#F04794"
                                   }}
+                                className="nav-link" to={`${url}/addProduct`}><span className="text-light">{clipboard} </span>Add a Product</NavLink>
+                                </li>
+                        )
+                    }
+                    {
+                        admin && (
+                                <li className="nav-item fw-bold">
+                                <NavLink 
+                                  activeStyle={{
+                                    fontWeight: "bold",
+                                    color: "#F04794"
+                                  }}
                                 className="nav-link" to={`${url}/manageProducts`}><span className="text-light">{clipboard} </span>Manage All Products</NavLink>
                                 </li>
                         )
@@ -125,6 +138,15 @@ const Dashboard = () => {
                          </li>
                         )
                     }
+
+                        <li className="nav-item fw-bold">
+                            <NavLink 
+                              activeStyle={{
+                                fontWeight: "bold",
+                                color: "#F04794"
+                              }}
+                            className="nav-link" to="/home"><span className="text-light">{home} </span> Go To Home</NavLink>
+                         </li>
                 </ul>
             {/*end of links*/}
              
@@ -141,6 +163,9 @@ const Dashboard = () => {
                     <Route path={`${path}/pay`}>
                         <Pay></Pay>
                     </Route>
+                    <AdminRoute path={`${path}/addProduct`}>
+                        <AddProduct></AddProduct>
+                    </AdminRoute>
                     <AdminRoute path={`${path}/manageProducts`}>
                         <ManageAllProducts></ManageAllProducts>
                     </AdminRoute>

@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
+import Footer from '../Footer/Footer';
+import NavigationBar from '../NavigationBar/NavigationBar';
 import "./PurchaseProduct.css";
 
 const PurchaseProduct = () => {
@@ -49,6 +51,8 @@ const PurchaseProduct = () => {
         e.target.reset();
     }
     return (
+      <div>
+        <NavigationBar></NavigationBar>
         <div className="bg-dark purchase-parent">
             <h1 className="text-center text-light">About <span className="title">{product.carName}</span></h1>
             <div className="product-details mx-auto my-5">
@@ -65,7 +69,7 @@ const PurchaseProduct = () => {
                 </div>
             </div>
             <h1 className="text-center title">Buy Now</h1>
-            <div className="purchase-form-parent shadow-lg mt-5">
+            <div className="purchase-form-parent shadow-lg">
           <div>
             <form className="purchase-form" onSubmit={handleSubmit(onSubmit)}>
               <input
@@ -89,6 +93,9 @@ const PurchaseProduct = () => {
           </div>
         </div>
         </div>
+        <Footer></Footer>
+      </div>
+
     );
 };
 

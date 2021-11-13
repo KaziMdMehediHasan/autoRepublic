@@ -19,3 +19,11 @@
 .make-admin-container form{
     width: 50%;
 }
+
+/* mobile responsive  */
+
+@media screen and (max-width: 688px){
+    .make-admin-parent{
+        height: 50vh;
+    }
+}

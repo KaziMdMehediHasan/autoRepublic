@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import Footer from '../../Footer/Footer';
+import NavigationBar from '../../NavigationBar/NavigationBar';
 import SingleProduct from '../SingleProduct/SingleProduct';
 import './AllProducts.css';
 
@@ -14,14 +16,18 @@ const AllProducts = () => {
         })
     },[])
     return (
+        <div>
+        <NavigationBar></NavigationBar>
         <div className="product-parent p-5">
             <div className="product-container container">
             {
                 products.map(product =><SingleProduct key={product._id} product={product}></SingleProduct>)
             }
             </div>
-
         </div>
+        <Footer></Footer>
+        </div>
+
     );
 };
 

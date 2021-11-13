@@ -27,7 +27,7 @@ import "aos/dist/aos.css";
 
 const Dashboard = () => {
     let { path, url } = useRouteMatch();
-    const{admin} = useAuth();
+    const{admin, logOut} = useAuth();
     //icons 
     const home = <FontAwesomeIcon icon={faHome}/>
     const clipboard = <FontAwesomeIcon icon={faClipboard}/>
@@ -159,6 +159,8 @@ const Dashboard = () => {
                          </li>
                 </ul>
             {/*end of links*/}
+
+            <button onClick={logOut} className="btn btn-danger">Logout</button>
              
         </div>
         <div className="dashboard-body">

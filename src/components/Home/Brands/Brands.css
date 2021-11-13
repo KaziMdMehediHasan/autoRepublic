@@ -1,0 +1,29 @@
+.brands{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 2rem;
+}
+
+.single-brand{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15rem;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+.single-brand img{
+    width: 11rem;
+}
+
+/* mobile responsive */
+
+@media screen and (max-width: 688px) {
+    .brands{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content:center;
+        align-items:center;
+    }
+}

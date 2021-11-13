@@ -14,7 +14,7 @@ const ReviewSection = () => {
     },[])
     return (
         <div className="my-5">
-            <h1 className="text-center text-muted">What Our Clients Say?</h1>
+            <h1 className="text-center text-muted fw-bold">What Our Clients Say?</h1>
             <div className="review-parent container p-5">
                 {
                     reviews.map(review =><SingleReview key={review._id} review={review}></SingleReview>)

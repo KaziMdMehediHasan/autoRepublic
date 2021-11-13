@@ -36,11 +36,11 @@ const ManageSingle = (props) => {
                  Delete Product
              </button>
              <Link to={`updateProduct/${_id}`}>
-               <button
+               {/* <button
                   class="btn btn-primary"
                   >
                  Update
-              </button>
+              </button> */}
              </Link>
  
         </td>

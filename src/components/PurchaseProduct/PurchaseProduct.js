@@ -5,6 +5,8 @@ import useAuth from '../../hooks/useAuth';
 import Footer from '../Footer/Footer';
 import NavigationBar from '../NavigationBar/NavigationBar';
 import "./PurchaseProduct.css";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const PurchaseProduct = () => {
     const {user} = useAuth();
@@ -50,12 +52,19 @@ const PurchaseProduct = () => {
         console.log(orderData);
         e.target.reset();
     }
+
+    // animation on scroll
+
+    useEffect(() =>{
+      Aos.init({duration : 1000});
+    },[]);
+
     return (
       <div>
         <NavigationBar></NavigationBar>
         <div className="bg-dark purchase-parent">
             <h1 className="text-center text-light">About <span className="title">{product.carName}</span></h1>
-            <div className="product-details mx-auto my-5">
+            <div data-aos="fade-right" className="product-details mx-auto my-5">
                 <div className="product-img">
                     <img src={product.img_url} alt=""/>
                 </div>
@@ -69,7 +78,7 @@ const PurchaseProduct = () => {
                 </div>
             </div>
             <h1 className="text-center title">Buy Now</h1>
-            <div className="purchase-form-parent shadow-lg">
+            <div data-aos="fade-left" className="purchase-form-parent shadow-lg">
           <div>
             <form className="purchase-form" onSubmit={handleSubmit(onSubmit)}>
               <input

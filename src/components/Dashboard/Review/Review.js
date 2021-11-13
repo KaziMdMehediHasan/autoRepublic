@@ -1,4 +1,6 @@
-import React from 'react';
+import Aos from 'aos';
+import "aos/dist/aos.css";
+import React, { useEffect } from 'react';
 import { useForm } from "react-hook-form";
 import useAuth from '../../../hooks/useAuth';
 
@@ -36,8 +38,13 @@ const Review = () => {
         e.target.reset();
     }
 
+        // animation on scroll
+        useEffect(() =>{
+          Aos.init({duration : 1000});
+        },[]);
+
     return (
-        <div className="container">
+        <div data-aos="fade-left" className="container">
             <h1 className="text-light text-center p-5">Leave a Review</h1>
             <form className="purchase-form" onSubmit={handleSubmit(onSubmit)}>
               <input

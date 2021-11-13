@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ManageSingleOrder from './ManageSingleOrder/ManageSingleOrder';
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const ManageAllOrders = () => {
     const [orders, setOrders] = useState([]);
@@ -12,9 +14,15 @@ const ManageAllOrders = () => {
             // console.log(data);
         })
     },[orders])
+
+    // animation on scroll
+    useEffect(() =>{
+        Aos.init({duration : 1000});
+      },[]);
+
     return (
         <div className="table-parent">
-            <div className="table-container">
+            <div data-aos="fade-up" className="table-container">
             <table class="table caption-top">
                 <caption className="fw-bold">All Orders</caption>
                 <thead className="table-head">
@@ -28,7 +36,7 @@ const ManageAllOrders = () => {
                     <th className="text-light" scope="col">Action</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody data-aos="fade-up">
                     {
                         orders.map(order=> <ManageSingleOrder key={order._id} order={order}></ManageSingleOrder>)
                     }

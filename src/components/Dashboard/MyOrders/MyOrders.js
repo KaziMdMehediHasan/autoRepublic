@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import SingleOrder from './SingleOrder/SingleOrder';
 import "./MyOrders.css";
+import Aos from 'aos';
+import "aos/dist/aos.css";
 
 const MyOrders = () => {
     const[orders, setOrders] = useState([]);
@@ -18,9 +20,15 @@ const MyOrders = () => {
         })
     },[orders])
 
+
+            // animation on scroll
+            useEffect(() =>{
+                Aos.init({duration : 1000});
+              },[]);
+
     return (
         <div className="table-parent">
-            <div className="table-container">
+            <div data-aos="fade-up" className="table-container">
             <table class="table caption-top">
                 <caption className="fw-bold">My Orders</caption>
                 <thead className="table-head">

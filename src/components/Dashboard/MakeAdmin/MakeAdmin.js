@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import "./MakeAdmin.css";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const MakeAdmin = () => {
     const [email, setEmail] = useState('');
@@ -26,8 +28,14 @@ const MakeAdmin = () => {
         })
         e.preventDefault();
     }
+
+    // animation on scroll
+    useEffect(() =>{
+        Aos.init({duration : 1000});
+      },[]);
+
     return (
-        <div className="make-admin-parent">
+        <div data-aos="fade-right" className="make-admin-parent">
         <div className="make-admin-container">
         <h2 className="text-center" style={{color: '#C8C8C8'}}>Make Admin</h2>
             <form onSubmit={handleMakeAdmin}>

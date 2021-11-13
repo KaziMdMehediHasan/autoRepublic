@@ -1,7 +1,7 @@
 import { faClipboard } from '@fortawesome/free-regular-svg-icons';
 import { faCommentAlt, faHome, faList, faMoneyCheckAlt, faUserShield } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
     Switch,
     Route,
@@ -22,6 +22,8 @@ import Pay from './Pay/Pay';
 import Review from './Review/Review';
 import UpdateOrder from './UpdateOrder/UpdateOrder';
 import UpdateProduct from './UpdateProduct/UpdateProduct';
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const Dashboard = () => {
     let { path, url } = useRouteMatch();
@@ -33,9 +35,16 @@ const Dashboard = () => {
     const superUser = <FontAwesomeIcon icon={faUserShield}/>
     const payment = <FontAwesomeIcon icon={faMoneyCheckAlt}/>
     const comment = <FontAwesomeIcon icon={faCommentAlt}/>
+
+    // animation on scroll
+
+    useEffect(() =>{
+      Aos.init({duration : 1000});
+    },[]);
+
     return (
         <div className="dashboard-container">
-        <div className="dashboard-sidebar">
+        <div data-aos="fade-up" className="dashboard-sidebar">
             <h1 className="text-center my-5">Menu</h1>
             {/* links*/}
                 <ul className="dashboard-menu">
@@ -152,7 +161,7 @@ const Dashboard = () => {
             {/*end of links*/}
              
         </div>
-        <div className="dashboard-body">
+        <div data-aos="fade-left" className="dashboard-body">
             <Switch>
                     {/* home route */}
                     <Route exact path={path}>

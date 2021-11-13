@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import "./SingleHomeProduct.css"
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const SingleHomeProduct = (props) => {
     const {_id, carBrand, carName, description, img_url, price} = props.product;
+
+    // animation on scroll
+    useEffect(() =>{
+        Aos.init({duration : 1000});
+    },[]);
     return (
-        <div className="home-custom-card">
+        <div data-aos="fade-up" className="home-custom-card">
             <div className="home-card-image">
                 <img src={img_url} alt=""/>
             </div>

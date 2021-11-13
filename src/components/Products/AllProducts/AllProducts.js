@@ -3,10 +3,11 @@ import Footer from '../../Footer/Footer';
 import NavigationBar from '../../NavigationBar/NavigationBar';
 import SingleProduct from '../SingleProduct/SingleProduct';
 import './AllProducts.css';
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const AllProducts = () => {
     const [products,setProducts] = useState([]);
-
     useEffect(() =>{
         fetch("https://calm-earth-69765.herokuapp.com/products")
         .then(res=>res.json())

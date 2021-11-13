@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import "./SingleProduct.css";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const SingleProduct = (props) => {
     const {_id, carBrand, carName, description, img_url, price} = props.product;
+
+    useEffect(() =>{
+        Aos.init({duration : 1000});
+    },[]);
     return (
-        <div className="custom-card">
+        <div data-aos="fade-up" className="custom-card">
             <div className="card-image">
                 <img src={img_url} alt=""/>
             </div>

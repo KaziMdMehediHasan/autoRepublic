@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import "./AddProduct.css";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const AddProduct = () => {
     const { register, handleSubmit } = useForm();
@@ -26,8 +28,15 @@ const AddProduct = () => {
 
         e.target.reset();
     }
+
+        // animation on scroll
+
+        useEffect(() =>{
+          Aos.init({duration : 1000});
+        },[]);
+
     return (
-        <div className="pb-5">
+        <div data-aos="fade-right" className="pb-5">
         <h1 className="text-center text-light p-5">Add a New Product</h1>
         <div className="add-product-parent shadow-lg">
           <div>

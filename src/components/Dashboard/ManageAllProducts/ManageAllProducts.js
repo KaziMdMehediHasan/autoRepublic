@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import ManageSingle from './ManageSingle/ManageSingle';
 import './ManageAllProducts.css';
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const ManageAllProducts = () => {
     const [products, setProducts] = useState([]);
@@ -13,9 +15,15 @@ const ManageAllProducts = () => {
             // console.log(data);
         })
     },[products])
+
+    // animation on scroll
+    useEffect(() =>{
+        Aos.init({duration : 1000});
+        },[]);
+    
     return (
         <div className="table-parent">
-            <div className="table-container">
+            <div data-aos="fade-up" className="table-container">
             <table class="table caption-top">
                 <caption className="fw-bold">All Products</caption>
                 <thead className="table-head">
@@ -28,7 +36,7 @@ const ManageAllProducts = () => {
                     <th className="text-light" scope="col">Action</th>
                     </tr>
                 </thead>
-                <tbody className="">
+                <tbody>
                     {
                         products.map(product=> <ManageSingle key={product._id} product={product}></ManageSingle>)
                     }

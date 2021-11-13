@@ -11,11 +11,19 @@
     box-shadow: 0px 0px 50px  rgba(77, 77, 77, 0.5);
 }
 
+.home-card-image{
+    overflow: hidden;
+}
+
 .home-card-image img{
     border-radius: 5px;
     width: 20rem;
     height: 13rem;
     object-fit: cover;
+    transition: transform 0.5s;
+}
+.home-card-image img:hover{
+    transform: scale(1.2);
 }
 
 .card-text{

@@ -19,11 +19,16 @@
 
 .product-img{
     width: 40%;
+    overflow: hidden;
 }
 .product-img img{
     max-width: 100%;
     object-fit: cover;
     border-radius: 10px ;
+    transition: transform 0.5s;
+}
+.product-img img:hover{
+    transform: scale(1.3);
 }
 .product-info{
     width: 40%;

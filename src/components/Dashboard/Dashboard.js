@@ -44,7 +44,7 @@ const Dashboard = () => {
 
     return (
         <div className="dashboard-container">
-        <div data-aos="fade-up" className="dashboard-sidebar">
+        <div className="dashboard-sidebar">
             <h1 className="text-center my-5">Menu</h1>
             {/* links*/}
                 <ul className="dashboard-menu">
@@ -161,7 +161,7 @@ const Dashboard = () => {
             {/*end of links*/}
              
         </div>
-        <div data-aos="fade-left" className="dashboard-body">
+        <div className="dashboard-body">
             <Switch>
                     {/* home route */}
                     <Route exact path={path}>

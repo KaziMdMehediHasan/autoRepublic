@@ -36,7 +36,7 @@ const AddProduct = () => {
         },[]);
 
     return (
-        <div data-aos="fade-right" className="pb-5">
+        <div data-aos="fade-up" className="pb-5">
         <h1 className="text-center text-light p-5">Add a New Product</h1>
         <div className="add-product-parent shadow-lg">
           <div>

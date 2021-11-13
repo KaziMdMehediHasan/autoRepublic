@@ -64,7 +64,7 @@ const PurchaseProduct = () => {
         <NavigationBar></NavigationBar>
         <div className="bg-dark purchase-parent">
             <h1 className="text-center text-light">About <span className="title">{product.carName}</span></h1>
-            <div data-aos="fade-right" className="product-details mx-auto my-5">
+            <div data-aos="fade-up" className="product-details mx-auto my-5">
                 <div className="product-img">
                     <img src={product.img_url} alt=""/>
                 </div>
@@ -78,7 +78,7 @@ const PurchaseProduct = () => {
                 </div>
             </div>
             <h1 className="text-center title">Buy Now</h1>
-            <div data-aos="fade-left" className="purchase-form-parent shadow-lg">
+            <div data-aos="fade-up" className="purchase-form-parent shadow-lg">
           <div>
             <form className="purchase-form" onSubmit={handleSubmit(onSubmit)}>
               <input

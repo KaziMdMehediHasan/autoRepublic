@@ -35,7 +35,7 @@ const MakeAdmin = () => {
       },[]);
 
     return (
-        <div data-aos="fade-right" className="make-admin-parent">
+        <div data-aos="fade-up" className="make-admin-parent">
         <div className="make-admin-container">
         <h2 className="text-center" style={{color: '#C8C8C8'}}>Make Admin</h2>
             <form onSubmit={handleMakeAdmin}>

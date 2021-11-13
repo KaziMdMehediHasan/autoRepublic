@@ -17,7 +17,7 @@ const SingleReview = (props) => {
         Aos.init({duration : 1000});
     },[]);
     return (
-        <div data-aos="fade-left" className="review-card shadow">
+        <div data-aos="fade-up" className="review-card shadow">
             <h3><span style={{color: "#50A374"}}>{user}</span> {name}</h3>
             <h5 className="text-muted">{profession}</h5>
             <p className="">{quoteLeft} {opinion.slice(0,70)}... {quoteRight}</p>

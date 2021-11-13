@@ -19,7 +19,7 @@ const Brands = () => {
         <div>
             <h1 className="text-center my-5 text-muted fw-bold">Our Most Popular Brands</h1>
             <div className="container brands">
-                <div data-aos="fade-right" className="single-brand shadow-lg">
+                <div data-aos="fade-up" className="single-brand shadow-lg">
                    <img src={bmw} alt=""/>
                 </div>
                 <div data-aos="fade-up" className="single-brand shadow-lg">
@@ -28,10 +28,10 @@ const Brands = () => {
                 <div data-aos="fade-up" className="single-brand shadow-lg">
                    <img src={toyota} alt=""/>
                 </div>
-                <div data-aos="fade-left"  className="single-brand shadow-lg">
+                <div data-aos="fade-up"  className="single-brand shadow-lg">
                    <img src={nissan} alt=""/>
                 </div>
-                <div data-aos="fade-right" className="single-brand shadow-lg">
+                <div data-aos="fade-up" className="single-brand shadow-lg">
                    <img src={jaguar} alt=""/>
                 </div>
                 <div data-aos="fade-up"  className="single-brand shadow-lg">
@@ -40,7 +40,7 @@ const Brands = () => {
                 <div data-aos="fade-up"  className="single-brand shadow-lg"> 
                     <img src={mercedez} alt=""/>
                 </div>
-                <div data-aos="fade-left"  className="single-brand shadow-lg">
+                <div data-aos="fade-up"  className="single-brand shadow-lg">
                     <img src={audi} alt=""/>
                 </div> 
             </div>

@@ -44,7 +44,7 @@ const Review = () => {
         },[]);
 
     return (
-        <div data-aos="fade-left" className="container">
+        <div data-aos="fade-up" className="container">
             <h1 className="text-light text-center p-5">Leave a Review</h1>
             <form className="purchase-form" onSubmit={handleSubmit(onSubmit)}>
               <input

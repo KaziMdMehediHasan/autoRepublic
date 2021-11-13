@@ -17,7 +17,7 @@ const ManageAllProducts = () => {
         <div className="table-parent">
             <div className="table-container">
             <table class="table caption-top">
-                <caption>All Products</caption>
+                <caption className="fw-bold">All Products</caption>
                 <thead className="table-head">
                     <tr className="table-row">
                     <th className="text-light" scope="col">Model</th>

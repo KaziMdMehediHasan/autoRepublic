@@ -52,7 +52,7 @@ const Login = () => {
                 <input onChange={handleChange} name="password" placeholder="Password" type="password" class="form-control" />
               </div>
           
-              <button type="submit" class="btn btn-primary">Login</button>
+              <button type="submit" class="btn btn-info">Login</button>
               <br/>
               <hr/>
             </form>
@@ -77,10 +77,10 @@ const Login = () => {
             </div>)
             }
 
-          <button class="btn btn-primary"onClick={handleGoogleLogin}>Google Login</button>
+          <button class="btn btn-info"onClick={handleGoogleLogin}>Google Login</button>
           <br/>
-
-          <Link to="/register">No Account? Click Here To Register</Link>
+          <br/>
+          <Link className="text-decoration-none text-info fw-bold" to="/register">No Account? Click Here To Register</Link>
           <h1>{error}</h1>
           </div>
       <div className="login-foot">

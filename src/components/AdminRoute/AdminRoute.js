@@ -12,7 +12,7 @@ const AdminRoute = ({ children, ...rest }) => {
   if(!admin || isLoading) {
         return (
           <div class="d-flex align-items-center">
-            <strong>Access Bound to Admin Only!</strong>
+            <strong className="text-light">Access Bound to Admin Only! Click On Dashboard Home</strong>
             <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
           </div>
            )

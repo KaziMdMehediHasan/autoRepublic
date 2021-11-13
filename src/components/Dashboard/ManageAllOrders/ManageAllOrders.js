@@ -16,7 +16,7 @@ const ManageAllOrders = () => {
         <div className="table-parent">
             <div className="table-container">
             <table class="table caption-top">
-                <caption>All Orders</caption>
+                <caption className="fw-bold">All Orders</caption>
                 <thead className="table-head">
                 <tr className="table-row">
                     <th className="text-light" scope="col">Car</th>

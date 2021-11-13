@@ -22,7 +22,7 @@ const MyOrders = () => {
         <div className="table-parent">
             <div className="table-container">
             <table class="table caption-top">
-                <caption>My Orders</caption>
+                <caption className="fw-bold">My Orders</caption>
                 <thead className="table-head">
                     <tr className="table-row">
                     <th className="text-light" scope="col">Car</th>

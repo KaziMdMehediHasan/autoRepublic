@@ -63,9 +63,9 @@ const Register = () => {
                 <label class="form-label">Confirm Password</label>
                 <input onChange={handleChange} name="password2" placeholder="Re-type Password" type="password" class="form-control"/>
               </div>
-              <button type="submit" class="btn btn-primary">Register</button>
+              <button type="submit" class="btn btn-info">Register</button>
               <br/>
-              <hr/>
+              <br/>
               </form>)
               }
               {
@@ -83,7 +83,7 @@ const Register = () => {
               }
 
               <h1>{error}</h1>
-              <Link to="/login">Already Registered? Click Here To Login</Link>
+              <Link className="text-decoration-none text-info fw-bold" to="/login">Already Registered? Click Here To Login</Link>
         </div>
         <div  className="reg-foot">
         <Footer></Footer>

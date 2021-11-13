@@ -45,7 +45,7 @@ const MakeAdmin = () => {
                     </div>
                 )
             }
-                <button type="submit" class="btn btn-primary">Make Admin</button>
+                <button type="submit" class="btn btn-info">Make Admin</button>
             </form>
 
         </div>

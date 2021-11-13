@@ -47,7 +47,9 @@ const ManageSingleOrder = (props) => {
         <td className="text-light"><span className="table-span">Customer Name : </span> {name}</td>
         <td className="text-light"><span className="table-span">Address : </span> {address}</td>
         <td className="text-light"><span className="table-span">Contact No : </span> {contact}</td>
-        <td className="text-light"><span className="table-span">Order Status :</span> {status}</td>
+        <td className="text-light">
+            <span className="table-span">Order Status :</span> {status}
+        </td>
         <td>
             <button 
             onClick={()=>{
@@ -61,7 +63,7 @@ const ManageSingleOrder = (props) => {
              {/* <Link to={`updateOrder/${_id}`}>
                <button class="btn btn-primary">Update</button>
              </Link> */}
-             <button onClick={()=>{handleShip(_id)}} class="btn btn-primary">
+             <button onClick={()=>{handleShip(_id)}} class="btn btn-info">
                  Ship
              </button>
         </td>

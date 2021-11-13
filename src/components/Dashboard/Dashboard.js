@@ -17,6 +17,7 @@ import MakeAdmin from './MakeAdmin/MakeAdmin';
 import ManageAllOrders from './ManageAllOrders/ManageAllOrders';
 import ManageAllProducts from './ManageAllProducts/ManageAllProducts';
 import MyOrders from './MyOrders/MyOrders';
+import NotFoundD from './NotFoundD/NotFoundD';
 import Pay from './Pay/Pay';
 import Review from './Review/Review';
 import UpdateOrder from './UpdateOrder/UpdateOrder';
@@ -183,6 +184,9 @@ const Dashboard = () => {
                     </AdminRoute>
                     <Route path={`${path}/review`}>
                         <Review></Review>
+                    </Route>
+                    <Route path={`${path}/*`}>
+                        <NotFoundD></NotFoundD>
                     </Route>
                 </Switch>
         </div>

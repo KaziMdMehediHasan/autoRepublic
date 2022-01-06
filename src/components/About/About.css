@@ -1,0 +1,25 @@
+.about-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.half{
+    width: 40%;
+}
+.about-container p{
+    font-size: 13px;
+}
+.about{
+    margin-bottom: -50px;
+    background-image: url("../../images/about2.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+@media screen and (max-width: 688px) {
+    .half{
+        width: 90% !important;
+    }
+}
